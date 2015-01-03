@@ -54,7 +54,9 @@
         $sum['total']['rx'] = $trx;
         $sum['total']['tx'] = $ttx;
 
-        print json_encode($sum);
+        //print json_encode($sum);
+
+        return $sum;
     }
 
 
@@ -64,8 +66,9 @@
     $graph_params = "if=$iface&amp;page=$page&amp;style=$style";
     if ($page == 's')
     {
-        write_summary();
+        $sum = write_summary();
     }
+
     else if ($page == 'h')
     {
       print json_encode(array('hours' => $hour));
