@@ -1,6 +1,8 @@
 <?php
 require_once 'lib/config.php';
 require_once 'lib/class/fetch.class.php';
+$sql = "SELECT * FROM `cw_server`";
+$query = $dbc->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,18 +67,23 @@ require_once 'lib/class/fetch.class.php';
                             <th>#</th>
                             <th>Server</th>
                             <th>Load</th>
-                            <th>Memory</th>
+                            <th>Uptime</th>
                             <th>Traffic</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php while ( $rs = $query->fetch_array()){
+                                $o = new fetch($rs['server_api_add']);
+                                $a = $o->get_array();
+                        ?>
                         <tr>
-                            <td>1,001</td>
-                            <td>Lorem</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
+                            <td>#</td>
+                            <td><?php echo $rs['server_name']; ?></td>
+                            <td><?php echo $o->get_load()['0'].$o->get_load()['1'].$o->get_load()['2']; ?></td>
+                            <td><?php echo $o->get_uptime(); ?></td>
+                            <td>今日:<?php echo $o->get_traffic_day(); ?>本月:<?php echo $o->get_traffic_month(); ?>总流量:<?php echo $o->get_traffic_total(); ?></td>
                         </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
