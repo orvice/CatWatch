@@ -1,5 +1,6 @@
 <?php
 require_once 'lib/config.php';
+require_once 'lib/class/fetch.class.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,10 +63,10 @@ require_once 'lib/config.php';
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
+                            <th>Server</th>
+                            <th>Load</th>
+                            <th>Memory</th>
+                            <th>Traffic</th>
                         </tr>
                         </thead>
                         <tbody>

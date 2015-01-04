@@ -17,4 +17,16 @@ class fetch {
         curl_close($c);
         return json_decode($json,true);
     }
+
+    function get_tra(){
+        return $this->get_array()['tra'];
+    }
+
+    function get_uptime(){
+        return $this->get_array()['uptime'];
+    }
+
+    function get_load(){
+        return $this->get_array()['load'];
+    }
 }
