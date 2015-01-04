@@ -35,9 +35,9 @@ class sys {
         $days = floor($hours / 24);
         $hours = floor($hours - ($days * 24));
         $min = floor($min - ($days * 60 * 24) - ($hours * 60));
-        if ($days !== 0) $this->res['uptime'] = $days."D";
-        if ($hours !== 0) $this->res['uptime'] .= $hours."H";
-        $this->res['uptime'] .= $min."M";
+        if ($days !== 0) $this->res['uptime'] = $days."天";
+        if ($hours !== 0) $this->res['uptime'] .= $hours."小时";
+        $this->res['uptime'] .= $min."分";
         return $this->res['uptime'];
     }
 
